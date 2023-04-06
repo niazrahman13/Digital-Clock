@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="clock"></div>
+    <script>
+        function clock() {
+            let date = new Date();
+            let hrs = date.getHours();
+            let mins = date.getMinutes();
+            let secs = date.getSeconds();
+            let period = "AM";
+
+            if (hrs == 0) {
+                hrs = 12;
+            }
+            if (hrs > 12) {
+                hrs = hrs - 12;
+                period = "PM";
+            }
+            if (hrs < 10) {
+                hrs = `0${hrs}`
+            } else {
+                hrs
+            }
+            if (mins < 10) {
+                mins = `0${mins}`
+            } else {
+                mins
+            }
+            if (secs < 10) {
+                secs = `0${secs}`
+            } else {
+                secs
+            }
+
+            let setTime = `${hrs}:${mins}:${secs} ${period}`;
+            setInterval(clock, 1000);
+            document.getElementById("clock").innerText = setTime;
+        }
+
+        clock();
+
+    </script>
+</body>
+
+</html>
